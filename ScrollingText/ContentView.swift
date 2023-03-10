@@ -7,14 +7,18 @@
 
 import SwiftUI
 
-struct ScrollingText: View {
+struct ScrollingView<Content : View>: View {
+    let content: Content
     @State private var isScrolling: Bool = false
-    var textView: Text
     let animationDuration: CGFloat = 5
+    
+    init(@ViewBuilder content: () -> Content) {
+         self.content = content()
+     }
     
     var body: some View {
         GeometryReader { reader in
-            textView
+            content
                 .background(.gray.opacity(0.2))
                 .offset(x: isScrolling ? 0 : reader.size.width)
                 .animation(.linear(duration: animationDuration), value: isScrolling)
@@ -29,9 +33,9 @@ struct ScrollingText: View {
 struct ContentView: View {
     var body: some View {
         VStack {
-            ScrollingText(
-                textView: Text("Hello, world!")
-            )
+            ScrollingView {
+                Text("Hello, world!")
+            }
         }
         .padding()
     }
