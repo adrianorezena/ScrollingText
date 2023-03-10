@@ -7,13 +7,31 @@
 
 import SwiftUI
 
+struct ScrollingText: View {
+    @State private var isScrolling: Bool = false
+    var textView: Text
+    let animationDuration: CGFloat = 5
+    
+    var body: some View {
+        GeometryReader { reader in
+            textView
+                .background(.gray.opacity(0.2))
+                .offset(x: isScrolling ? 0 : reader.size.width)
+                .animation(.linear(duration: animationDuration), value: isScrolling)
+        }
+        .task { @MainActor in
+            try? await Task.sleep(for: .seconds(1))
+            isScrolling = true
+        }
+    }
+}
+
 struct ContentView: View {
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            ScrollingText(
+                textView: Text("Hello, world!")
+            )
         }
         .padding()
     }
