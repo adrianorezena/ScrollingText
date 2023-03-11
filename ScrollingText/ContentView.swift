@@ -7,37 +7,36 @@
 
 import SwiftUI
 
-struct ScrollingView<Content : View>: View {
-    let content: Content
-    @State private var isScrolling: Bool = false
-    let animationDuration: CGFloat = 5
-    
-    init(@ViewBuilder content: () -> Content) {
-         self.content = content()
-     }
-    
-    var body: some View {
-        GeometryReader { reader in
-            content
-                .background(.gray.opacity(0.2))
-                .offset(x: isScrolling ? 0 : reader.size.width)
-                .animation(.linear(duration: animationDuration), value: isScrolling)
-        }
-        .task { @MainActor in
-            try? await Task.sleep(for: .seconds(1))
-            isScrolling = true
-        }
-    }
-}
-
 struct ContentView: View {
     var body: some View {
         VStack {
             ScrollingView {
+                Text("Hello, world! This is a very big text that will scroll on screen")
+                    .fixedSize()
+            }
+        
+            ScrollingView {
+                ZStack(alignment: .leading) {
+                    Rectangle()
+                        .overlay {
+                            Image("img_ride")
+                                .resizable()
+                                .scaledToFill()
+                        }
+                        .clipped()
+                        .frame(height: 100)
+                        .frame(maxWidth: .infinity)
+                    
+                    Text("Need a ride?")
+                        .foregroundColor(.white)
+                        .padding()
+                }
+            }
+            
+            ScrollingView {
                 Text("Hello, world!")
             }
         }
-        .padding()
     }
 }
 
@@ -46,3 +45,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

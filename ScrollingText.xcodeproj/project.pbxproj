@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8066F3D129BD30040042106D /* ScrollingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8066F3D029BD30040042106D /* ScrollingView.swift */; };
 		808F284329BBD91900218CC6 /* ScrollingTextApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F284229BBD91900218CC6 /* ScrollingTextApp.swift */; };
 		808F284529BBD91900218CC6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808F284429BBD91900218CC6 /* ContentView.swift */; };
 		808F284729BBD91A00218CC6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808F284629BBD91A00218CC6 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8066F3D029BD30040042106D /* ScrollingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingView.swift; sourceTree = "<group>"; };
 		808F283F29BBD91900218CC6 /* ScrollingText.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScrollingText.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		808F284229BBD91900218CC6 /* ScrollingTextApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingTextApp.swift; sourceTree = "<group>"; };
 		808F284429BBD91900218CC6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			children = (
 				808F284229BBD91900218CC6 /* ScrollingTextApp.swift */,
 				808F284429BBD91900218CC6 /* ContentView.swift */,
+				8066F3D029BD30040042106D /* ScrollingView.swift */,
 				808F284629BBD91A00218CC6 /* Assets.xcassets */,
 				808F284829BBD91A00218CC6 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				808F284529BBD91900218CC6 /* ContentView.swift in Sources */,
+				8066F3D129BD30040042106D /* ScrollingView.swift in Sources */,
 				808F284329BBD91900218CC6 /* ScrollingTextApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
