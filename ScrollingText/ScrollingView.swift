@@ -10,7 +10,7 @@ import SwiftUI
 struct ScrollingView<Content: View>: View {
     let content: Content
     @State private var isScrolling: Bool = false
-    let animationDuration: CGFloat = 5
+    let animationDuration: CGFloat = 8
     @State private var viewSize: CGFloat = 0
     
     init(@ViewBuilder content: () -> Content) {

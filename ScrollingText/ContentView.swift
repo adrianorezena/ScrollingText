@@ -14,6 +14,7 @@ struct ContentView: View {
                 Text("Hello, world! This is a very big text that will scroll on screen")
                     .fixedSize()
             }
+            .frame(height: 50)
         
             ScrollingView {
                 ZStack(alignment: .leading) {
@@ -27,15 +28,16 @@ struct ContentView: View {
                         .frame(height: 100)
                         .frame(maxWidth: .infinity)
                     
-                    Text("Need a ride?")
-                        .foregroundColor(.white)
-                        .padding()
+                    VStack(alignment: .leading) {
+                        Text("You can scroll whatever you want.")
+                        Text("Even a picture.")
+                            .fontWeight(.bold)
+                    }
+                    .padding(.leading)
                 }
+                .foregroundColor(.white)
             }
-            
-            ScrollingView {
-                Text("Hello, world!")
-            }
+            .frame(height: 100)
         }
     }
 }
